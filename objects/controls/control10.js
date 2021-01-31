@@ -1,7 +1,7 @@
 addObject({
     name: 'control10',
     create() {
-        initControl(10, 'хз');
+        initControl(10, 'Зоопарк');
     },
     timer: 0,
     step() {
