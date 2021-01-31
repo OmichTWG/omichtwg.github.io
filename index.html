@@ -1,0 +1,89 @@
+﻿<html>
+	<head>
+		<title>HRU 🐷</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<div id="ui-container">
+			<div id="dialog">
+				<p id="dialog-name"></p>
+				<div id="dialog-text"></div>
+			</div>
+			<div id="buttons">
+				<img onclick="if(global.canClick) openPigopedia()" src="./images/icon.png">
+				<img onclick="if(global.canClick) openMenu()" src="./images/menuIcon.png">
+			</div>
+			<div id="lvlname">
+				<div id="lvlname-title"></div>
+				<div id="lvlname-number"></div>
+			</div>
+			<div id="main-menu">
+				<img src="./images/logo.png" style="width: 324px; margin-bottom: 40px"/>
+				<div onclick="newGame()" class="buttons">новая игра</div>
+				<div onclick="continueGame()" class="buttons">продолжить</div>
+			</div>
+			<div id="ball-ui">
+				<div id="ball-ui1"></div>
+				<div id="ball-ui2"></div>
+			</div>
+			<div id="menu">
+				<div id="menu-container">
+					<div style="display: flex; justify-content: space-between; align-items: center;">
+						<div style="width: 40px"></div>
+						<div style="margin-bottom: 0">МЕНЮ</div>
+						<img src="images/exit.png" style="width: 40px;" onclick="closeMenu()"/>
+					</div>
+					<div><input type="checkbox" id="ch1" onchange="setMusic()"/><label for="ch1">Музыка</label></div>
+					<div><input type="checkbox" id="ch2" onchange="setSounds()"/><label for="ch2">Звуки</label></div>
+					<div onclick="goToRoom(`map${global.currentLvl + 1}`); closeMenu()" class="buttons">Пропустить lvl</div>
+					<div onclick="goToRoom('init'); closeMenu()" class="buttons">В главное меню</div>
+				</div>
+			</div>
+			<div id="battle-pic">
+				<div id="bp-img-cont">
+					<div id="color1"></div>
+					<div id="color2"></div>
+					<img src="images/pigopedia/pig.png">
+				</div>
+				<div class="cpick" id="cp1"></div>
+				<div class="cpick" id="cp2"></div>
+				<div onclick="startEndDialog()" class="buttons">да, это мой фон</div>
+			</div>
+			<div id="pigopedia">
+				<div id="pigopedia-wrap">
+					<div id="pigopedia-content" style="display: flex;">
+						<div style="width: 93%;">
+							<div id="pigopedia-grid"></div>
+						</div>
+						<div style="width: 7%;">
+							<img onclick="closePigopedia()" src="./images/exit.png" style="width: 90%; margin-left: 10%;">
+						</div>
+					</div>
+					<div id="pigopedia-page">
+						<div style="width: 23%; display: flex; flex-direction: column; justify-content: center;">
+							<img id="pigopedia-page-image"/>
+						</div>
+						<div style="width: 70%; padding: 20px; display: flex; flex-direction: column;">
+							<h3 id="pigopedia-name"></h3>
+							<div id="pigopedia-text"></div>
+						</div>
+						<div style="width: 7%;">
+							<img onclick="backPigopedia()" src="./images/back.png" style="margin-top: 20px; border: none">
+						</div>
+					</div>
+				</div>
+			</div>
+            <div id="joy"></div>
+			<div id="rbutt" onclick="keyDown.add('KeyR')"><img src="./images/restart.png"/></div>
+			<div id="rotate">
+				<p>Телефон поверни, плиз</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="core.js"></script>
+	<script type="text/javascript" src="joy.min.js"></script>
+	<script type="text/javascript" src="game-config.js"></script>
+</html>

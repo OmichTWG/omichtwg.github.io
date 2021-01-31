@@ -1,0 +1,434 @@
+﻿body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	image-rendering: pixelated;
+}
+
+#canvas {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	image-rendering: auto;
+}
+
+img {
+	-webkit-user-drag: none;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+/*ui*/
+
+#ui-container {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+.buttons {
+	padding: 10px;
+	border-radius: 10px;
+	background-color: #eec39a;
+	border: 2px solid #45283c;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	text-align: center;
+	width: 200px;
+	cursor: pointer;
+	box-shadow: 5px 5px 17px -9px #000000;
+}
+
+/*buttons*/
+
+#buttons {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	display: flex;
+	visibility: hidden;
+}
+
+#buttons img {
+	width: 48px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+#buttons img:last-child {
+	margin-right: 0;
+}
+
+/*dialog*/
+
+#dialog {
+	max-width: 800px;
+	width: 80vw;
+	height: 200px;
+	background: #d9a066;
+	border: 2px solid #45283c;
+	position: absolute;
+	bottom: 40px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	visibility: hidden;
+	z-index: 1;
+}
+
+#dialog-text, #dialog-name {
+	background: #eec39a;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+#dialog-text {
+	height: 100%;
+}
+
+#dialog-name {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+/*pigopedia*/
+
+#pigopedia {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	align-items: center;
+	height: 100%;
+	visibility: hidden;
+}
+
+#pigopedia-wrap {
+	max-height: 80vh;
+	height: 500px;
+	max-width: 800px;
+	width: 80vw;
+	background: #d9a066;
+	border: 2px solid #45283c;
+	position: absolute;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+#pigopedia-grid {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(6, 1fr);
+}
+
+#pigopedia img {
+	cursor: pointer;
+}
+
+#pigopedia-grid img {
+	width: 100%;
+	background: #eec39a;
+	border: 2px solid #45283c;
+}
+
+#pigopedia-text, #pigopedia-name {
+	background: #eec39a;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+#pigopedia-name {
+	margin-bottom: 20px;
+}
+
+#pigopedia-text {
+	width: 100%;
+	height: 100%;
+}
+
+#pigopedia-page {
+	display: none; 
+	height: 100%;
+}
+
+#pigopedia-page img {
+	width: 100%;
+	background-color: #eec39a;
+	border: 2px solid #45283c;
+}
+
+#pigopedia-page-image {
+	cursor: default !important;
+}
+
+/*lvlname*/
+
+#lvlname {
+	color: white;
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	background: rgba(0,0,0,0.5);
+	transition: opacity 1000ms ease-in-out; 
+	visibility: hidden;
+	pointer-events: none;
+	text-align: center;
+}
+
+.alpha-zero {
+	opacity: 0;
+}
+
+#lvlname-title {
+	word-break: break-word;
+}
+
+#lvlname-number {
+	font-size: 48px;
+}
+
+@media screen and (max-width: 900px){
+	#lvlname-title {
+		font-size: 72px;
+	}
+
+}
+
+@media screen and (min-width: 900px){
+	#lvlname-title {
+		font-size: 96px;
+	}
+}
+
+/*main-menu*/
+
+#main-menu {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+}
+
+/*ball-ui*/
+
+#ball-ui {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	background: url("./sprites/ball.png");
+	background-size: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+}
+
+#ball-ui div {
+	border: 2px solid #eec39a;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: #45283cee;
+	padding: 5px;
+}
+
+#ball-ui div:last-child {
+	margin: 0;
+}
+
+#ball-ui div img {
+	width: 100%;
+}
+
+@media screen and (max-width: 900px){
+	#ball-ui {
+		width: 100px;
+		height: 100px;
+		opacity: 0.75;
+	}
+
+}
+
+@media screen and (min-width: 900px){
+	#ball-ui {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+/*menu*/
+
+#menu {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+	visibility: hidden;
+}
+
+#menu img, input, label {
+	cursor: pointer;
+}
+
+#menu-container {
+	display: flex;
+	flex-direction: column;
+	background: #d9a066;
+	border: 2px solid #45283c;
+	position: absolute;
+	padding: 20px;
+}
+
+#menu-container div {
+	margin-bottom: 20px;
+}
+
+#menu-container div:last-child {
+	margin-bottom: 0;
+}
+
+#menu-container input[type="checkbox"] {
+	margin-right: 10px;
+}
+
+/*#bp-img*/
+
+#battle-pic {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+	visibility: hidden;
+}
+
+#bp-img-cont {
+	display: flex;
+	flex-direction: column;
+	background: #d9a066;
+	border: 2px solid #45283c;
+	position: relative;
+}
+
+#bp-img-cont div {
+	height: 50%;
+	width: 100%;
+}
+
+#bp-img-cont img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.cpick {
+	background: #d9a066;
+	border: 2px solid #45283c;
+	display: flex;
+	flex-direction: row;
+}
+
+@media screen and (max-height: 600px){
+	#bp-img-cont {
+		width: 250px;
+		height: 175px;
+	}
+
+	.cpick {
+		padding: 5px;
+	}
+
+	#battle-pic > div {
+		margin-bottom: 5px;
+	}
+}
+
+@media screen and (min-height: 600px){
+	#bp-img-cont {
+		width: 450px;
+		height: 350px;
+	}
+
+	.cpick {
+		padding: 20px;
+	}
+
+	#battle-pic > div {
+		margin-bottom: 20px;
+	}
+}
+
+.cpick div {
+	width: 40px;
+	height: 40px;
+	border: 2px solid #45283c;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.cpick div:last-child {
+	margin: 0;
+}
+
+.white-border {
+	border: 3px solid white !important;
+}
+
+/*joy*/
+
+#joy {
+	height: 140px;
+	width: 	140px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 50%;
+	background-color: #00000033;
+	visibility: hidden;
+}
+
+#rbutt {
+	color: white;
+	padding: 5px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border: 2px solid white;
+	background-color: #00000033;
+	visibility: hidden;
+}
+
+#rbutt img {
+	width: 40px;
+	height: 40px;
+}
+
+#rotate {
+	background: black;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	color: white;
+	text-transform: uppercase;
+}
