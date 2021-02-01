@@ -9,9 +9,9 @@ let shadowKeyPress = new Set();
 let intID = null;
 
 const interval = () => {
-    if (joy.GetPosX() > 70) {
+    if (joy.GetPosX() > 90) {
         shadowKeyPress.add('KeyD');
-    } else if (joy.GetPosX() < 70) {
+    } else if (joy.GetPosX() < 50) {
         shadowKeyPress.add('KeyA');
     }
 
