@@ -67,14 +67,9 @@ img {
 /*dialog*/
 
 #dialog {
-	max-width: 800px;
-	width: 80vw;
-	height: 200px;
 	background: #d9a066;
 	border: 2px solid #45283c;
 	position: absolute;
-	bottom: 40px;
-	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	visibility: hidden;
@@ -83,7 +78,6 @@ img {
 
 #dialog-text, #dialog-name {
 	background: #eec39a;
-	padding: 10px;
 	border-radius: 10px;
 }
 
@@ -91,9 +85,45 @@ img {
 	height: 100%;
 }
 
-#dialog-name {
-	font-size: 20px;
-	margin-bottom: 10px;
+@media screen and (min-width: 900px){
+	#dialog {
+		max-width: 800px;
+		width: 80vw;
+		height: 200px;
+		bottom: 40px;
+		padding: 10px;
+	}
+
+	#dialog-name {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+
+	#dialog-text, #dialog-name {
+		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	#dialog {
+		width: 70vw;
+		height: 120px;
+		bottom: 5px;
+		padding: 5px;
+	}
+
+	#dialog-name {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+
+	#dialog-text {
+		font-size: 12px;
+	}
+
+	#dialog-text, #dialog-name {
+		padding: 7px;
+	}
 }
 
 /*pigopedia*/
@@ -198,18 +228,7 @@ img {
 	font-size: 48px;
 }
 
-@media screen and (max-width: 900px){
-	#lvlname-title {
-		font-size: 72px;
-	}
 
-}
-
-@media screen and (min-width: 900px){
-	#lvlname-title {
-		font-size: 96px;
-	}
-}
 
 /*main-menu*/
 
