@@ -47,6 +47,16 @@ addObject({
 		        shadowKeyPress.add(k);
             })
             shadowKeyPress.forEach(code => {
+	        const jump = () => {
+			if (this.spaceDelay <= 0) {
+                            if (hasName(this.pigs, 'pigWing') ||
+                                (intID !== null &&
+                                    collisionCollider((i) => i.type === 'solid', this.x, this.y + 29, this.collider))) {
+                                this.spacePromise = true;
+                            }
+                            this.spaceDelay = 25;
+                        }
+		}
                 switch (code) {
                     case 'KeyD':
                         x += 1;
@@ -55,31 +65,33 @@ addObject({
                         x += -1;
                         break;
                     case 'Space':
-                        if (this.spaceDelay <= 0) {
-                            if (hasName(this.pigs, 'pigWing') ||
-                                (intID !== null &&
-                                    collisionCollider((i) => i.type === 'solid', this.x, this.y + 29, this.collider))) {
-                                this.spacePromise = true;
-                            }
-                            this.spaceDelay = 25;
-                        }
+                        jump();
                         break;
+		    case 'KeyW':
+			jump();
+			break;
                 }
             });
             shadowKeyPress.clear();
             keyDown.forEach(code => {
-                switch (code) {
-                    case 'Space':
-                        if ((collisionCollider((i) => i.type === 'solid', this.x, this.y + 29, this.collider) &&
+	        const jump = () => {
+			if ((collisionCollider((i) => i.type === 'solid', this.x, this.y + 29, this.collider) &&
                             this.vspeed >= 0) || hasName(this.pigs, 'pigWing')) {
                             this.spacePromise = true;
                         }
                         this.spaceDelay = 30;
+		}
+                switch (code) {
+                    case 'Space':
+                        jump();
                         break;
                     case 'KeyR':
                         playSoundIf('restart', 0.05);
                         roomRestart();
                         break;
+		    case 'KeyW':
+			jump();
+			break;
                 }
             })
         }
