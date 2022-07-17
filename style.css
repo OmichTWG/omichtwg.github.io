@@ -1,0 +1,185 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'Press Start 2P', cursive;
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: pixelated; /* Chrome */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.ui {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1.5em;
+}
+
+.default-gaps {
+    padding: 30px;
+    margin: 50px;
+}
+
+.default {
+    color: white;
+    background: black;
+    border: 5px double white;
+}
+
+/*Ачивка*/
+.ui-achievement {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.ui-achievement-card {
+    visibility: hidden;
+}
+
+/*Диалог*/
+.ui-dialog {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.ui-dialog-card {
+    visibility: hidden;
+    width: 50vw;
+    min-height: 150px;
+}
+
+.ui-dialog-card-name {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.ui-dialog-card-icon {
+    display: flex;
+    margin-top: 10px;
+    justify-content: end;
+}
+
+@keyframes flashing {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+.ui-dialog-card-icon img{
+    height: 20px;
+    animation: flashing 2s ease-in-out infinite;
+}
+
+/*Меню*/
+.ui-menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-menu-card {
+    pointer-events: auto;
+    visibility: hidden;
+    width: 375px;
+}
+
+.ui-menu-card > * {
+    margin-bottom: 20px;
+}
+
+.ui-menu-card > *:last-child {
+    margin-bottom: 0;
+}
+
+.ui-menu-card-scale {
+    display: flex;
+}
+
+.ui-menu-card-scale > * {
+    margin-right: 10px;
+}
+
+.ui-menu-card-scale > *:last-child {
+    margin-right: 0;
+}
+
+.ui-button {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex img {
+    height: 32px;
+    cursor: pointer;
+}
+
+.rect {
+    width: 15px;
+    height: 32px;
+    border: 2px solid white;
+}
+
+.rect-full {
+    background: white;
+}
+
+.rect-blank {
+    background: black;
+}
+
+.ui-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-modal-card {
+    text-align: center;
+    pointer-events: auto;
+    visibility: hidden;
+    width: 375px;
+}
+
+.ui-modal-text {
+    margin-bottom: 20px;
+}

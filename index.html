@@ -1,0 +1,58 @@
+﻿<html>
+	<head>
+		<title>Наследие</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="canvas"></canvas>
+			<div class="ui">
+				<div class="ui-dialog">
+					<div class="ui-dialog-card default default-gaps">
+						<div class="ui-dialog-card-name"></div>
+						<div class="ui-dialog-card-text"></div>
+						<div class="ui-dialog-card-icon"><img src="sprites/mouse.png"></div>
+					</div>
+				</div>
+				<div class="ui-achievement">
+					<div class="ui-achievement-card default default-gaps">
+						<div>+1 сила</div>
+						<div>Получена способность:</div>
+						<div class="ui-achievement-card-text"></div>
+					</div>
+				</div>
+				<div class="ui-modal">
+					<div class="ui-modal-card default default-gaps">
+						<div class="ui-modal-text"></div>
+						<div class="flex" style="justify-content: center;">
+							<div class="ui-button default" onclick="global.modalAccept(); closeModal();" style="margin-right: 20px;">Да</div>
+							<div class="ui-button default" onclick="global.modalDecline(); closeModal();">Отмена</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui-menu">
+					<div class="ui-menu-card default default-gaps">
+						<div>Звуки:</div>
+						<div class="flex">
+							<img src="sprites/leftArrow.png" onclick="changeVolume(-1)">
+							<div class="ui-menu-card-scale sounds-scale"></div>
+							<img src="sprites/rightArrow.png" onclick="changeVolume(1)">
+						</div>
+						<div>Музыка:</div>
+						<div class="flex">
+							<img src="sprites/leftArrow.png" onclick="changeMusic(-1)">
+							<div class="ui-menu-card-scale music-scale"></div>
+							<img src="sprites/rightArrow.png" onclick="changeMusic(1)">
+						</div>
+						<div class="ui-button default" onclick="closeMenu()">Вернуться в игру</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="hammock/root.min.js"></script>
+</html>
